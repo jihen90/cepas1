@@ -1,0 +1,10 @@
+<div class="field">
+    <%= f.label :magazine_id %>
+    <%= f.collection_select :magazine_id, @magazines, :id, :name %>
+</div>
+
+<% EnologistMagazine.roles.each do |key, value| %>
+    <%= f.fields_for :role, @user.role.build do |x| %>
+        <%= x.checkbox :role, {}, value, false  %>
+    <% end %>
+<% end %>
